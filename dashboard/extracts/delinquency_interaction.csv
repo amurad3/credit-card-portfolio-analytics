@@ -1,0 +1,5 @@
+util_hi,thin_file,accounts,delinquency_rate,segment
+False,False,42584,9.56,Lower util (<60%) + Established
+False,True,1696,15.68,Lower util (<60%) + Thin file
+True,False,5128,56.18,High util (>=60%) + Established
+True,True,592,78.38,High util (>=60%) + Thin file

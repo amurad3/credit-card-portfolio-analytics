@@ -1,0 +1,5 @@
+cluster,accounts,avg_utilization,avg_fico,avg_income,avg_history_months,delinquency_rate,segment
+2,12265,21.3,765.0,93584.0,152.0,5.98,Segment A - Lowest risk
+0,12167,25.0,712.0,56651.0,337.0,9.91,Segment B - Moderate
+3,23179,28.6,677.0,47210.0,107.0,14.48,Segment C - Elevated
+1,2389,82.7,620.0,41196.0,137.0,100.0,Segment D - Highest risk
