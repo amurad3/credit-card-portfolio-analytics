@@ -1,0 +1,5 @@
+product_id,product_name,base_apr,annual_fee
+1,Secured,0.2599,0
+2,Standard,0.2399,0
+3,Gold,0.2099,95
+4,Platinum,0.1799,195
