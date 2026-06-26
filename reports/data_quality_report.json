@@ -1,0 +1,30 @@
+{
+  "regions": {
+    "rows_out": 4
+  },
+  "card_products": {
+    "rows_out": 4
+  },
+  "cardholders": {
+    "exact_duplicates_removed": 0,
+    "missing_income_imputed": 1532,
+    "impossible_ages_fixed": 40,
+    "employment_blanks_filled": 2542,
+    "fico_out_of_range_clipped": 0,
+    "rows_out": 50000,
+    "orphan_region_fk_dropped": 0
+  },
+  "accounts": {
+    "duplicate_accounts_removed": 25,
+    "nonpositive_limit_dropped": 0,
+    "rows_out": 50000,
+    "orphan_fk_dropped": 0
+  },
+  "monthly_statements": {
+    "exact_duplicates_removed": 50,
+    "negative_payments_corrected": 182,
+    "missing_payments_zeroed": 300,
+    "rows_out": 595253,
+    "orphan_account_fk_dropped": 0
+  }
+}
