@@ -50,7 +50,7 @@ WINDOW_END = date(2026, 5, 31)      # "today" in the project narrative is mid-20
 # Risk-model coefficients for the monthly miss-payment probability. Calibrated so
 # the portfolio lands at a realistic ~6-8% point-in-time 30+ delinquency rate and
 # a ~3-5% charge-off rate, with utilization and thin-file as the dominant drivers.
-RISK_INTERCEPT = -5.28
+RISK_INTERCEPT = -3.45
 RISK_BETA_FICO = -0.90    # higher FICO -> lower risk
 RISK_BETA_INCOME = -0.30  # higher income -> lower risk
 RISK_BETA_UTIL = 1.85     # high utilization -> higher risk   (primary driver)
@@ -129,12 +129,14 @@ def build_cardholders_accounts(products: pd.DataFrame):
         (age - 18) * 12 * rng.uniform(0.15, 0.8, size=n), 1, 480
     ).astype(int)
 
-    # FICO at origination: anchored by income and history, with real spread.
+    # FICO at origination: centered near a realistic ~700 portfolio median,
+    # anchored by income and credit history, with genuine spread (a ~25%
+    # subprime tail below 660).
     fico = (
-        540
-        + 80 * (np.log(income) - np.log(45_000))
-        + 0.04 * credit_history_months
-        + rng.normal(0, 55, size=n)
+        700
+        + 65 * (np.log(income) - np.log(55_000))
+        + 0.04 * (credit_history_months - 60)
+        + rng.normal(0, 58, size=n)
     )
     fico = np.clip(fico, 300, 850).round().astype(int)
 
@@ -266,7 +268,7 @@ def build_statements(accounts: pd.DataFrame) -> pd.DataFrame:
         # Payment amount: payers cover anywhere from the minimum up to the full
         # balance. Full-payers (transactors) clear it; revolvers pay a partial
         # share and carry the rest, so the book keeps a realistic balance.
-        pay_frac = rng.uniform(0.05, 0.6, size=n)               # revolver pay-down share
+        pay_frac = rng.uniform(0.03, 0.40, size=n)              # revolver pay-down share
         full_payer = rng.random(n) < (0.30 * (1 - miss_prob))   # transactors pay in full
         payment = np.where(
             pays,

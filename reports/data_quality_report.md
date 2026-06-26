@@ -1,6 +1,6 @@
 # Data Quality Report
 
-_Generated: 2026-06-26 18:45_
+_Generated: 2026-06-26 19:05_
 
 This report documents every cleaning and validation action applied when
 transforming the raw card-system exports into analysis-ready tables.
@@ -43,7 +43,7 @@ transforming the raw card-system exports into analysis-ready tables.
 | Check | Count |
 | --- | ---: |
 | exact duplicates removed | 50 |
-| negative payments corrected | 182 |
+| negative payments corrected | 180 |
 | missing payments zeroed | 300 |
-| rows out | 595253 |
+| rows out | 595569 |
 | orphan account fk dropped | 0 |

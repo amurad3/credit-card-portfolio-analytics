@@ -22,9 +22,9 @@
   },
   "monthly_statements": {
     "exact_duplicates_removed": 50,
-    "negative_payments_corrected": 182,
+    "negative_payments_corrected": 180,
     "missing_payments_zeroed": 300,
-    "rows_out": 595253,
+    "rows_out": 595569,
     "orphan_account_fk_dropped": 0
   }
 }
