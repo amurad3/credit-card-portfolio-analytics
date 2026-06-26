@@ -1,0 +1,13 @@
+# Core data tooling for the cleaning, validation, and analytics pipeline.
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+
+# Risk segmentation (KMeans) and delinquency-driver modeling (logistic
+# regression) in python/analytics.py.
+scikit-learn>=1.3
+
+# Optional: only needed if you want the Python loader to push the cleaned
+# CSVs straight into PostgreSQL instead of using psql \copy (see sql/02_load.sql).
+# psycopg2-binary>=2.9
+# SQLAlchemy>=2.0
