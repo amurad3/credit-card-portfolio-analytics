@@ -121,11 +121,12 @@ psql -d creditcard -f sql/05_root_cause.sql
 psql -d creditcard -f sql/06_trend_analysis.sql
 ```
 
-> **SQL is standard PostgreSQL (13+).** Its results were validated against the
-> Python KPIs via an automated cross-check — the layers report identical numbers
-> (e.g. 50,000 accounts, 15.37% 30+ delinquency, 2.74% charge-off, and an
-> identical risk-tier table), so the SQL and Python implementations confirm each
-> other.
+> **Verified on PostgreSQL 18.1:** the schema, loader, and all four analysis
+> scripts run cleanly end-to-end, and the SQL results match the Python KPIs
+> exactly — e.g. 50,000 accounts, 15.37% 30+ delinquency, 2.74% charge-off, an
+> identical risk-tier table (Tier 4 = 95.31% delinquency, 70.65% charge-off), and
+> the same 7.58% → 13.32% delinquency trend. The SQL and Python layers confirm
+> each other.
 
 ### 3. Dashboard
 Open the extracts in `dashboard/extracts/` with Tableau or Power BI following
